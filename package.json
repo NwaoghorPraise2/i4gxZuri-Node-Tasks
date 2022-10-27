@@ -1,0 +1,11 @@
+{
+  "name": "node-week5",
+  "version": "1.0.0",
+  "description": "Nodejs Week 5 Task I4gxZuri",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Nwaoghor Praise",
+  "license": "MIT"
+}
