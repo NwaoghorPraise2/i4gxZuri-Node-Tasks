@@ -1,19 +1,12 @@
 {
-  "name": "book_flight",
+  "name": "booking-flight-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Week6-task",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": "https://github.com/NwaoghorPraise2/i4gxZuri-Node-Tasks.git",
+  "author": "NwaoghorPraise2 <chukunwaoghor@gmail.com>",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.18.1",
-    "mongoose": "^6.4.0",
-    "nodemon": "^2.0.16"
+    "express": "^4.18.2"
   }
 }
