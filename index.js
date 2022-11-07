@@ -4,6 +4,7 @@ const flights = require("./controllers/flightController");
 const models = require("./models/Flight");
 const routes = require("./routes/flightRoute");
 const {flightList} = require("./models/Flight");
+const {v4: uuid} = require('uuid');
 
 const app = express();
 
@@ -29,9 +30,10 @@ let getAllFlights = async (req, res) => {
 // add or book flight
 let bookFlight = async (req, res) => {
     try {
-        const { tittle , price} = await req.body;
-        console.log(req.body);
+        const { tittle, price} = await req.body;
+        // console.log(yes);
         const newFlight = {
+            id: uuid(),
             tittle,
             time: new Date().toLocaleTimeString(),
             price,
