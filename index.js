@@ -10,8 +10,10 @@ const app = express();
 
 app.use(json());
 
+//setting app
 app.use("/", routes);
 app.use("/api", routes);
+
 
 //get All Flights
 let getAllFlights = async (req, res) => {
@@ -25,6 +27,8 @@ let getAllFlights = async (req, res) => {
         res.status(500).json({ message: err.message});
     }
 };
+
+
 
 // get single flight
 let getSingleFlight =  async (req, res) => {
@@ -40,14 +44,13 @@ let getSingleFlight =  async (req, res) => {
             message: err.message
         });
     }
-
 }
+
 
 // add or book flight
 let bookFlight = async (req, res) => {
     try {
         const { tittle, price} = await req.body;
-        // console.log(yes);
         const newFlight = {
             id: uuid(),
             tittle,
@@ -64,6 +67,8 @@ let bookFlight = async (req, res) => {
         res.status(500).json({ message: err.message});
     }
 };
+
+
 
 //update flight
 let updateFlight = async (req, res) => {
@@ -88,6 +93,7 @@ let updateFlight = async (req, res) => {
     }
 };
 
+
 //delete flight 
 let deleteFlight = async (req, res) => {
     try{
@@ -104,6 +110,8 @@ let deleteFlight = async (req, res) => {
     });
     }
 };
+
+//routes
 routes.get('/api', getAllFlights)
     .get('/api/:id', getSingleFlight)
     .delete('/api/:id', deleteFlight)
@@ -111,8 +119,8 @@ routes.get('/api', getAllFlights)
     .post('/api', bookFlight);
     
 
+//server
 const port = process.env.PORT || 3100;
-
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
