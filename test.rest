@@ -1,0 +1,2 @@
+//Testing the route
+GET http://localhost:4500/ HTTP/1.1

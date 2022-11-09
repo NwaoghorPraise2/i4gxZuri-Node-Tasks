@@ -1,0 +1,17 @@
+{
+  "name": "todo-app-api",
+  "version": "1.0.0",
+  "description": "ToDo application to keep people productive.",
+  "main": "index.js",
+  "repository": "https://github.com/NwaoghorPraise2/i4gxZuri-Node-Tasks",
+  "author": "NwaoghorPraise",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2"
+  },
+  "scripts": {
+  "dev": "nodemon index.js"
+  }
+}
