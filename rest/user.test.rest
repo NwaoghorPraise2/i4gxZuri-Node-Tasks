@@ -1,1 +1,26 @@
 GET Http://localhost:4500/api HTTP/1.1
+
+###
+GET Http://localhost:4500/api/636d54ec2404e490a9616b05 HTTP/1.1
+
+#####
+POST Http://localhost:4500/api HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"James",
+    "email": "chukunw@gmail.com",
+    "age": 67
+}
+
+###
+PUT Http://localhost:4500/api/636d54ec2404e490a9616b05 HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"Praise",
+    "email": "Praise@gmail.com"
+}
+
+###
+DELETE Http://localhost:4500/api/636d54ec2404e490a9616b05 HTTP/1.1
