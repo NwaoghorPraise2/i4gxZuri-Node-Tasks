@@ -1,17 +1,20 @@
 const express = require('express');
+const {json, urlencoded} = require('express');
 const env = require('dotenv').config();
 const connect = require('./config/database');
+const userRoute = require('./router/userRoutes');
+
+const app = express();
+
+app.use(json());
+app.use('/api', userRoute);
+
 
 connect(process.env.ONLINE_DB);
 
-const app = express();
+
 const port = process.env.PORT || 2000; 
 
-app.get('/', (req, res) => {
-    res.status(200).json({
-    message: 'todo server ready'
-    });
-});
 
 app.listen(port, () => {
     console.log(`server started on ${port}`);
