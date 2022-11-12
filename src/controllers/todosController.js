@@ -1,19 +1,19 @@
-const User = require('../models/userModel');
+const todos = require('../models/todosModel');
 
-    //get all users
-    let getAllUsers = async (req, res) => {
+    //get todos
+    let getTodos = async (req, res) => {
         try {
-            let users = await User.find();
-            if (users.length === 0) {
+            let todo = await todos.find();
+            if (todo.length === 0) {
                 return res.status(404).json({
                     success:false,
-                    message: 'No user not found'
+                    message: 'No todos not found'
                 });
             };
             res.status(200).json({
                 success: true,
-                message: 'Users Found',
-                users
+                message: 'Todos Found',
+                todo
             });
         } catch (err) {
             res.status(500).json({
@@ -24,19 +24,19 @@ const User = require('../models/userModel');
         }
     }
     
-    //get single users
-    let getSingleUSer = async (req, res) => {
+    //get single todo
+    let getTodo = async (req, res) => {
         try {
             let id = {_id: req.params.id};
-            let user = await User.findOne(id);
-                if (!user) return res.status(404).json({
+            let todo = await todos.findOne(id);
+                if (!todo) return res.status(404).json({
                     success: false,
-                    message: 'user not found'
+                    message: 'todo not found'
                 });
                 res.status(200).json({
                     success: true,
-                    message: 'User Found',
-                    user
+                    message: 'todo Found',
+                    todo
                 });
         } catch (err) {
             res.status(500).json({
@@ -47,20 +47,19 @@ const User = require('../models/userModel');
         }
     };
     
-    //create user
-    let createUser = async (req, res) => {
+    //create todo
+    let createTodo = async (req, res) => {
         try {
-            let user = await req.body;
-            // console.log(user);
-            let createdUser = await User.create(user);
-            if (!createdUser) return res.status(404).json({
+            let todo = await req.body;
+            let createdTodo = await todos.create(todo);
+            if (!createdTodo) return res.status(404).json({
                 message: false,
-                message: 'User Creation failed'
+                message: 'Todo Creation failed'
             })
             return res.status(201).json({
                 success: true,
-                message: 'User Creation Successful',
-                user: createdUser
+                message: 'todo Creation Successful',
+                todo: createdTodo
             })
         } catch (err) {
             res.status(500).json({
@@ -71,22 +70,22 @@ const User = require('../models/userModel');
         }
     };
     
-    //update users
-    let updateUser = async (req, res) => {
+    //update todo
+    let updateTodo = async (req, res) => {
         try {
             let id = {_id: req.params.id}
-            let user = await req.body;
-            let updateUser = await User.findByIdAndUpdate(id, user, {new: true});
-        
-        if (!updateUser) return res.status(500).json({
+            let todo = await req.body;
+            let updateTodo = await todos.findByIdAndUpdate(id, todo, {new: true});
+            
+        if (!updateTodo) return res.status(500).json({
             success: false,
-            message: 'User not updated'
+            message: 'Todo not updated'
         });
         
         return res.status(200).json({
             success: true,
-            message: 'User Updated',
-            updateUser
+            message: 'Todo Updated',
+            updateTodo
         });
         } catch (err) {
             res.status(500).json({
@@ -97,21 +96,21 @@ const User = require('../models/userModel');
         }
     };
     
-    //Delete Users
-    let deleteUser = async (req, res) => {
+    //Delete Todo
+    let deleteTodo = async (req, res) => {
         try {
             let id = {_id: req.params.id};
-            let deleteUser = await User.findOneAndDelete(id);
+            let deleteTodo = await todos.findOneAndDelete(id);
             
-            if (!deleteUser) return res.status(400).json({
+            if (!deleteTodo) return res.status(400).json({
                 success: false,
-                message: 'User not deleted'
+                message: 'Todo not deleted'
             });
             
             return res.status(200).json({
                 success: true,
-                message: "User Successfully Deleted",
-                deletedUser: deleteUser
+                message: "Todo Successfully Deleted",
+                deletedTodo: deleteTodo
             });
         } catch (err) {
             res.status(500).json({
@@ -124,9 +123,9 @@ const User = require('../models/userModel');
     
     //Export Modules
     module.exports = {
-        getAllUsers,
-        getSingleUSer,
-        createUser,
-        updateUser,
-        deleteUser
+        getTodos,
+        getTodo,
+        createTodo,
+        updateTodo,
+        deleteTodo
     };

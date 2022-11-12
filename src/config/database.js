@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const {config} = require(`dotenv`);
+const {config} = require('dotenv');
 
 config();
 let connect = async (uri) => {

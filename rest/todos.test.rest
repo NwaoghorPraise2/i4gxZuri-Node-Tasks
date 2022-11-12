@@ -1,0 +1,35 @@
+
+//GET request to get all todos
+GET Http://localhost:4500/api HTTP/1.1
+
+
+###
+//GET request to get on todo by _id
+GET Http://localhost:4500/api/636fefac20de8393539e9dda HTTP/1.1
+
+
+#####
+//POST request to add a todo
+POST Http://localhost:4500/api HTTP/1.1
+Content-Type: application/json
+
+{
+    "title":"Reading",
+    "description": "Read from 8pm to 9pm today"
+}
+
+
+###
+//PUT request to update a todo by _id
+PUT Http://localhost:4500/api/636fefac20de8393539e9dda HTTP/1.1
+Content-Type: application/json
+
+{
+    "title":"Prayer",
+    "description": "Pray fro  1am to 4am today."
+}
+
+
+###
+//DELETE a todo by _id
+DELETE Http://localhost:4500/api/636fefac20de8393539e9dda HTTP/1.1
