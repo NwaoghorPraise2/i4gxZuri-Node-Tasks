@@ -76,15 +76,15 @@ let updateFlight = async (req, res) => {
     let id = req.params.id;
     const getFlight = flightList.find((flight) => flight.id === id);
     const { tittle, price } = await req.body;
-    getFlight.tittle = tittle;
-    getFlight.price =price;
-    getFlight.date = new Date().toLocaleDateString();
-    getFlight.time = new Date().toLocaleTimeString();
-    res.status(201).json(
-        {
-        message:'Flight Updated',
-        getFlight
-        }
+        getFlight.tittle = tittle;
+        getFlight.price =price;
+        getFlight.date = new Date().toLocaleDateString();
+        getFlight.time = new Date().toLocaleTimeString();
+        res.status(201).json(
+            {
+            message:'Flight Updated',
+            getFlight
+            }
     );
     } catch (err) {
     res.status(500).json({
